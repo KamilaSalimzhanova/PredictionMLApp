@@ -1,6 +1,10 @@
 import Foundation
 
 struct TitanicModel: Identifiable {
+    static let passClass = ["First Class", "Second Class", "Third Class"]
+    static let ports = ["Cherbourg", "Queenstown", "Southampton"]
+    static let genders = ["male", "female"]
+    
     let id = UUID()
     var passengerClass: String // 1 2 3
     var sex: String // male female
@@ -9,10 +13,6 @@ struct TitanicModel: Identifiable {
     var parentsChildren: Double  // 4 3 2
     var fare: Double
     var port: String
-    
-    static let passClass = ["First Class", "Second Class", "Third Class"]
-    static let ports = ["Cherbourg", "Queenstown", "Southampton"]
-    static let genders = ["male", "female"]
     
     var pClass: Int64 {
         switch passengerClass {

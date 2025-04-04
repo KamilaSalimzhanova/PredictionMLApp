@@ -23,12 +23,16 @@ struct ContentView: View {
         NavigationStack {
             ZStack {
                 Form {
+                    SegmentSectionView(selected: $titanic.passengerClass, options: TitanicModel.passClass, sectionTitle: "Passenger class", prompt: "What passenger class are you in?")
+                    
+                    SegmentSectionView(selected: $titanic.sex, options: TitanicModel.genders, sectionTitle: "Gender", prompt: "What is your gender?")
+                    
                     FormSectionView(text: "Passenger class", newView: "To do")
                     FormSectionView(text: "Passenger class", newView: "To do")
                     FormSectionView(text: "Passenger class", newView: "To do")
                     FormSectionView(text: "Passenger class", newView: "To do")
-                    FormSectionView(text: "Passenger class", newView: "To do")
-                    FormSectionView(text: "Passenger class", newView: "To do")
+                    
+                    SegmentSectionView(selected: $titanic.port, options: TitanicModel.ports, sectionTitle: "Port", prompt: "What port did you embark from?")
                     
                     if showAlert {
                         Text("show alert")
