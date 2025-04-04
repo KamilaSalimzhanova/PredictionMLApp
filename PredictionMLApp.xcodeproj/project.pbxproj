@@ -11,6 +11,8 @@
 		8E48F0822DA017B300891ABB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E48F0812DA017B300891ABB /* ContentView.swift */; };
 		8E48F0842DA017B400891ABB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E48F0832DA017B400891ABB /* Assets.xcassets */; };
 		8E48F0872DA017B400891ABB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E48F0862DA017B400891ABB /* Preview Assets.xcassets */; };
+		8E48F08E2DA01C5600891ABB /* TitanicTabularRegression 2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8E48F08D2DA01C5600891ABB /* TitanicTabularRegression 2.mlmodel */; };
+		8E48F0902DA01C7200891ABB /* TitanicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E48F08F2DA01C7200891ABB /* TitanicModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		8E48F0812DA017B300891ABB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E48F0832DA017B400891ABB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E48F0862DA017B400891ABB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8E48F08D2DA01C5600891ABB /* TitanicTabularRegression 2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "TitanicTabularRegression 2.mlmodel"; sourceTree = "<group>"; };
+		8E48F08F2DA01C7200891ABB /* TitanicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanicModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,10 @@
 		8E48F07E2DA017B300891ABB /* PredictionMLApp */ = {
 			isa = PBXGroup;
 			children = (
+				8E48F08D2DA01C5600891ABB /* TitanicTabularRegression 2.mlmodel */,
 				8E48F07F2DA017B300891ABB /* PredictionMLAppApp.swift */,
 				8E48F0812DA017B300891ABB /* ContentView.swift */,
+				8E48F08F2DA01C7200891ABB /* TitanicModel.swift */,
 				8E48F0832DA017B400891ABB /* Assets.xcassets */,
 				8E48F0852DA017B400891ABB /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E48F08E2DA01C5600891ABB /* TitanicTabularRegression 2.mlmodel in Sources */,
 				8E48F0822DA017B300891ABB /* ContentView.swift in Sources */,
+				8E48F0902DA01C7200891ABB /* TitanicModel.swift in Sources */,
 				8E48F0802DA017B300891ABB /* PredictionMLAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
