@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreML
 
 struct ContentView: View {
     @State private var titanic: TitanicModel = .init(
@@ -36,9 +37,27 @@ struct ContentView: View {
                     SliderSectionView(val: $titanic.fare, sectionTitle: "Ticker Price", prompt: "Ticket and price: \(titanic.fare.formatted())", minValue: 0, maxValue: 600, step: 0.1)
                     
                     SegmentSectionView(selected: $titanic.port, options: TitanicModel.ports, sectionTitle: "Port", prompt: "What port did you embark from?")
-                    
-                    if showAlert {
-                        Text("show alert")
+
+                }
+                .scrollIndicators(.hidden)
+                .blur(radius: showAlert ? 5 : 0)
+                .allowsHitTesting(!showAlert)
+                if showAlert {
+                    Button {
+                        withAnimation { showAlert.toggle() }
+                    } label: {
+                        if let survival {
+                            Text(survival ? "Survived ✅" : "Not Survived  ❌")
+                                .padding()
+                                .foregroundColor(.black)
+                                .bold()
+                                .background(Color.gray.opacity(0.3))
+                                .cornerRadius(20)
+                        } else {
+                            Text("Prediction failed ❌")
+                                .padding()
+                                .background(Color.red.opacity(0.3))
+                        }
                     }
                 }
             }
@@ -46,7 +65,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button(action: {
-                        
+                        computeSurvival()
                     }) {
                         Text("Compute")
                             .foregroundColor(.red)
@@ -55,6 +74,31 @@ struct ContentView: View {
                     }
                 }
             }
+        }
+    }
+    
+    private func computeSurvival() {
+        do {
+            let config = MLModelConfiguration()
+            let model = try TitanicTabularRegression_2(configuration: config)
+            let prediction = try model.prediction(
+                Pclass: titanic.pClass,
+                Sex: titanic.sex,
+                Age: titanic.age,
+                SibSp: titanic.siblingsSpouses,
+                Parch: titanic.parentsChildren,
+                Fare: titanic.fare,
+                Embarked: String(titanic.port.first ?? "C")
+            )
+            survivalRate = prediction.Survived
+            print(survivalRate)
+            survival = prediction.Survived > 0.5
+        } catch {
+            survival = nil
+        }
+        
+        DispatchQueue.main.async {
+            showAlert = true // ✅ Ensure UI updates
         }
     }
 }

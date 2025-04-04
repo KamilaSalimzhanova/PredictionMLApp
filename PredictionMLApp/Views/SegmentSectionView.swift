@@ -20,7 +20,6 @@ struct SegmentSectionView: View {
             Picker(prompt, selection: $selected) {
                 ForEach(options, id:\.self) { currentSelected in
                     Text(currentSelected)
-                        .tag(currentSelected)
                 }
             }.pickerStyle(.segmented)
         } header: {

@@ -14,7 +14,7 @@ struct TitanicModel: Identifiable {
     var fare: Double
     var port: String
     
-    var pClass: Int64 {
+    var pClass: Double {
         switch passengerClass {
         case "First Class":
             return 1
