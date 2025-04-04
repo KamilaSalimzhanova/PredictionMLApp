@@ -27,10 +27,13 @@ struct ContentView: View {
                     
                     SegmentSectionView(selected: $titanic.sex, options: TitanicModel.genders, sectionTitle: "Gender", prompt: "What is your gender?")
                     
-                    FormSectionView(text: "Passenger class", newView: "To do")
-                    FormSectionView(text: "Passenger class", newView: "To do")
-                    FormSectionView(text: "Passenger class", newView: "To do")
-                    FormSectionView(text: "Passenger class", newView: "To do")
+                    SliderSectionView(val: $titanic.age, sectionTitle: "Age", prompt: "Age: \(titanic.age.formatted())", minValue: 0, maxValue: 120, step: 0.5)
+                    
+                    SliderSectionView(val: $titanic.siblingsSpouses, sectionTitle: "Siblings and spouses", prompt: "Siblings and spouses: \(titanic.siblingsSpouses.formatted())", minValue: 0, maxValue: 20, step: 1)
+                    
+                    SliderSectionView(val: $titanic.parentsChildren, sectionTitle: "Parents and children", prompt: "Parent and children: \(titanic.parentsChildren.formatted())", minValue: 0, maxValue: 20, step: 1)
+                    
+                    SliderSectionView(val: $titanic.fare, sectionTitle: "Ticker Price", prompt: "Ticket and price: \(titanic.fare.formatted())", minValue: 0, maxValue: 600, step: 0.1)
                     
                     SegmentSectionView(selected: $titanic.port, options: TitanicModel.ports, sectionTitle: "Port", prompt: "What port did you embark from?")
                     

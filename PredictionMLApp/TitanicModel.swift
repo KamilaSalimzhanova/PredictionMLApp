@@ -8,7 +8,7 @@ struct TitanicModel: Identifiable {
     let id = UUID()
     var passengerClass: String // 1 2 3
     var sex: String // male female
-    var age: Int // 22
+    var age: Double // 22
     var siblingsSpouses: Double // 1 0
     var parentsChildren: Double  // 4 3 2
     var fare: Double
